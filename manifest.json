@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "Json Formatter",
+  "version": "1.0",
+  "description": "Jsonファイルを整形してプレビュー",
+  "icons": {
+    "128": "icon_128.png"
+  },
+
+  "permissions": [
+    "tabs"
+  ],
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+
+  "page_action": {
+    "default_title": "Json Formatter",
+    "default_icon": "icon_16.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["file:///*json"],
+      "js": ["contentscript.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
